@@ -19,10 +19,11 @@ export default function AboutPage() {
     <div className="pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Brand Story */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="flex flex-col gap-16 mb-32">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-4xl"
           >
             <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-primary mb-4">Our Mission</h2>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 uppercase leading-none">
@@ -35,15 +36,22 @@ export default function AboutPage() {
               We believe in mobile freedom. We believe that technology should empower us to explore further, stay longer, and create without boundaries—all while respecting the planet that provides our energy.
             </p>
           </motion.div>
-          <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10">
+          
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl shadow-primary/5 bg-accent/20"
+          >
             <img 
-              src="https://picsum.photos/seed/adventure/1000/1000" 
-              alt="Adventure" 
-              className="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/d/1ET3abJ9FGE7t3jKLbZPWcFqsVCo1YUzJ" 
+              alt="Brand Story" 
+              className="w-full h-auto block"
               referrerPolicy="no-referrer"
+              onError={() => console.error("Failed to load About page image")}
             />
-            <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
-          </div>
+            <div className="absolute inset-0 bg-primary/5 mix-blend-overlay pointer-events-none" />
+          </motion.div>
         </div>
 
         {/* Contact Section */}
